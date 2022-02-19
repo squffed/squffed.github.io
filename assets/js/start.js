@@ -44,8 +44,8 @@ function fade(element) {
 
 function test()
 {
-   var val1 = document.getElementById('test1').value.toLowercase();
-   var val2 = document.getElementById('test2').value.toLowercase();
+   var val1 = document.getElementById('test1').value;
+   var val2 = document.getElementById('test2').value;
    if(val1.includes("apple") || val2.includes("apple"))
    {
       document.getElementById('contact').style.backgroundColor = "#B5EAD7";
