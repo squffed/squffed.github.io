@@ -1,0 +1,53 @@
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+  scroll-behavior: smooth;
+  background-color: #de9487; /* Perfect colour for Chrome/Firefox */
+  margin: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+textarea {
+  resize: none;
+  overflow: hidden;
+  height: 45px;
+}
+
+/* Full height image header */
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("../img/florian-gagnepain-TYoA7O_OmPc-unsplash.jpg");
+  min-height: 100%;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
+
+.shadow {
+  text-shadow: 2px 2px 5px black;
+}
+
+#intro {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;        
+}
+#fullscreen {
+    position:absolute;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    background-color: #de9487;
+    transition: background-color 500ms linear;
+    z-index: 4;
+}

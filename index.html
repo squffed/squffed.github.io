@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+   <title>SQUFFED</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   <link rel="stylesheet" href="assets/css/start.css">
+   <link rel="icon" href="assets/img/favicon.png">
+   <meta name="description" content="Hi there, I'm Rhys. I made SQUFFED as an incentive to push beyond just ideas. Come to the website to see games, apps and more!">
+   <script src="assets/js/start.js"></script>
+   <body>
+      <video autoplay muted id="intro" onended="tryToFade(this)" onclick="tryToFade(this)">
+         <source src="assets/vid/squffed-intro-trimmed.mp4" type="video/mp4">
+      </video>
+      <div id="fullscreen">
+         <!--Used to cover the elements below, deleted when fading-->
+      </div>
+      <!--Elements below here will be visible when the fade ends-->
+      <!-- Navbar (sit on top) -->
+      <div class="w3-top">
+         <div class="w3-bar w3-white w3-card" id="myNavbar">
+            <a href="#home" class="w3-bar-item w3-button w3-wide"><img src="assets/img/squffed-logo.png" style="height: 19px;"></a>
+            <!-- Right-sided navbar links -->
+            <div class="w3-right w3-hide-small">
+               <a href="#about" class="w3-bar-item w3-button"><i class="fa fa-circle-info"></i> ABOUT</a>
+               <a href="#featured" class="w3-bar-item w3-button"><i class="fa fa-star"></i> FEATURED</a>
+               <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i> WORK</a>
+               <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+            </div>
+            <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+            <i class="fa fa-bars"></i>
+            </a>
+         </div>
+      </div>
+      <!-- Sidebar on small screens when clicking the menu icon -->
+      <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-right w3-hide-medium w3-hide-large" style="display:none;animation-fill-mode: forwards;" id="mySidebar">
+         <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+         <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-circle-info"></i> ABOUT</a>
+         <a href="#featured" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-star"></i> FEATURED</a>
+         <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-th"></i> WORK</a>
+         <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+      </nav>
+      <!-- Header with full-height image -->
+      <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+         <div class="w3-display-middle w3-text-white" style="padding:48px; text-align: center; width: 100%;">
+            <span class="w3-jumbo w3-hide-small w3-hide-medium shadow">the power of <span
+               class="txt-rotate"
+               data-period="1000"
+               data-rotate='[ "games", "apps", "ideas", "support" ]'></span></span><br>
+            <span class="w3-xxxlarge w3-hide-small w3-hide-large shadow">the power of <br><span
+               class="txt-rotate"
+               data-period="1000"
+               data-rotate='[ "games", "apps", "ideas", "support" ]'></span></span><br>
+            <span class="w3-xxlarge w3-hide-large w3-hide-medium shadow">the power of <br><span
+               class="txt-rotate"
+               data-period="1000"
+               data-rotate='[ "games", "apps", "ideas", "support" ]'></span></span><br>
+            <span class="w3-large shadow">is in the palms of your hands, crafted by SQUFFED</span>
+            <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn more</a></p>
+         </div>
+         <div class="w3-display-bottommiddle w3-text-white w3-large shadow" style="padding:24px 48px; text-align: center; width: 100%;">
+            <a href="https://discord.gg/dQf39qEYsq" target="_blank"><i class="fa-brands fa-discord w3-hover-opacity"></i></a>
+            <a href="https://www.youtube.com/channel/UCyB-RChVKhJ8Cfx_MwzKEdA" target="_blank"><i class="fa-brands fa-youtube w3-hover-opacity"></i></a>
+            <a href="https://squffed.itch.io" target="_blank"><i class="fa-brands fa-itch-io w3-hover-opacity"></i></a>
+            <a href="https://github.com/squffed" target="_blank"><i class="fa-brands fa-github w3-hover-opacity"></i></a>
+            <a href="#contact"><i class="fa fa-envelope w3-hover-opacity"></i></a>
+         </div>
+      </header>
+      <!-- About Section -->
+      <div class="w3-container" style="padding:128px 16px" id="about">
+         <h3 class="w3-center">ABOUT</h3>
+         <p class="w3-center w3-large">Hi there, I'm Rhys. I made SQUFFED as an incentive to push beyond just ideas. Here is what to expect;</p>
+         <div class="w3-row-padding w3-center" style="margin-top:64px">
+            <div class="w3-quarter">
+               <i class="fa fa-gamepad w3-margin-bottom w3-jumbo w3-center"></i>
+               <p class="w3-large">Games</p>
+               <p>I plan to make games inspired by old and new. I've already made some, but more will come to different platforms.</p>
+            </div>
+            <div class="w3-quarter">
+               <i class="fa fa-desktop w3-margin-bottom w3-jumbo"></i>
+               <p class="w3-large">Apps</p>
+               <p>There are some great opportunities to fill in the world of app niches, and I wish to do just that.</p>
+            </div>
+            <div class="w3-quarter">
+               <i class="fa fa-lightbulb w3-margin-bottom w3-jumbo"></i>
+               <p class="w3-large">Ideas</p>
+               <p>Our brain is a mighty tool capable of a lot. I plan to use it to create some fantastic things.</p>
+            </div>
+            <div class="w3-quarter">
+               <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
+               <p class="w3-large">Support</p>
+               <p>You can contact me in general or about any of the work I've made. I don't mind!</p>
+            </div>
+         </div>
+      </div>
+      <!-- Promo Section - "We know design" -->
+      <div class="w3-container w3-light-grey" style="padding:128px 16px" id="featured">
+         <div class="w3-row-padding w3-hide-small w3-hide-medium">
+            <div class="w3-col m6 w3-center">
+               <h3>FEATURED WORK - <b>ARIA DISCONNECT</b></h3>
+               <p>Role: Co-Developer<br><br>Aria Disconnect is a 16-bit action-adventure. You are the protagonist Heri and you are going to follow the journey of his life crisis. The year is 2082, you are hooked to a machine, and there is only one way out - to disconnect.<br><br>Kimmo Savilampi is the main developer behind all of this. I've been around to invent back-end systems like the ring menu, but more notably large scale projects like a water physics system and a live midi player. This was happening within GameMaker Studio 2 before the decision to port to Unity was made.<br><br>Now that we're on track to success, deciding the game is for Unity was a great decision. So many things are easier, and so we can get the game out faster for you folks with fancier water and fantastic gameplay!</p>
+            </div>
+            <div class="w3-col m6 w3-center">
+               <video width="700" height="394" class="w3-image" controls poster="assets/img/AriaDisconnect/Poster.jpg"> 
+                  <source src="assets/vid/AriaDisconnectTrailer.webm" type="video/webm">
+               </video>
+               <p><a href="https://store.steampowered.com/app/1269910/Aria_Disconnect/" target="_blank" class="w3-button w3-black"><i class="fa fa-gamepad"> </i> Play The Demo</a>   <a href="#work" class="w3-button w3-black"><i class="fa fa-th"> </i> View Other Works</a></p>
+            </div>
+         </div>
+         <div class="w3-row-padding w3-hide-large w3-center">
+               <h3>FEATURED WORK - <b>ARIA DISCONNECT</b></h3>
+               <p>Role: Co-Developer<br><br>Aria Disconnect is a 16-bit action-adventure. You are the protagonist Heri and you are going to follow the journey of his life crisis. The year is 2082, you are hooked to a machine, and there is only one way out - to disconnect.<br><br>Kimmo Savilampi is the main developer behind all of this. I've been around to invent back-end systems like the ring menu, but more notably large scale projects like a water physics system and a live midi player. This was happening within GameMaker Studio 2 before the decision to port to Unity was made.<br><br>Now that we're on track to success, deciding the game is for Unity was a great decision. So many things are easier, and so we can get the game out faster for you folks with fancier water and fantastic gameplay!</p>
+               <video width="700" height="394" class="w3-image" controls poster="assets/img/AriaDisconnect/Poster.jpg"> 
+                  <source src="assets/vid/AriaDisconnectTrailer.webm" type="video/webm">
+               </video>
+               <p ><a href="https://store.steampowered.com/app/1269910/Aria_Disconnect/" target="_blank" class="w3-button w3-black"><i class="fa fa-gamepad"> </i> Play The Demo</a>   <a href="#work" class="w3-button w3-black"><i class="fa fa-th"> </i> View Other Works</a></p>
+         </div>
+      </div>
+      <!-- Work Section -->
+      <div class="w3-container" style="padding:128px 16px" id="work">
+         <h3 class="w3-center">WORK</h3>
+         <p class="w3-center w3-large">These are pieces I've made or helped with.</p>
+         <div class="w3-row-padding" style="margin-top:64px">
+            <div class="w3-col l3 m6">
+               <img src="assets/img/AriaDisconnect/1.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="<h6>Click image for screenshots!</h6><br>Role: Co-Developer<br><br>Aria Disconnect is a 16-bit action-adventure. You are the protagonist Heri and you are going to follow the journey of his life crisis. The year is 2082, you are hooked to a machine, and there is only one way out - to disconnect.<br><br>Play the demo and get it <a href='https://store.steampowered.com/app/1269910/Aria_Disconnect/' target='_blank'>here.</a>">
+            </div>
+            <div class="w3-col l3 m6">
+               <img src="assets/img/TMB/1.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="<h6>Click image for screenshots!</h6><br>Role: Developer<br><br>Too Many Bullets is a bullet-hell-wave-shooter hybrid. A strange fellow named Fingerhead woke up with the ability to shoot bullets out of his hands.  Waves of hostile creatures came out of nowhere with this same odd power, destroying everything he knew. He found out the source of his power - Hell. Do you have what it takes to defeat the monster which lies beneath?...<br><br>Get it <a href='https://squffed.itch.io/too-many-bullets' target='_blank'>here.</a>">
+            </div>
+            <div class="w3-col l3 m6">
+               <img src="assets/img/USS/1.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="<h6>Click image for screenshots!</h6><br>Role: Main Game Developer<br><br>Untitled Seagull Simulator is a fun-endless-seagull-gets-food game. Birban is a very popular seagull on the beach... for all the wrong reasons! He keeps on stealing food and Karen's hate him - and this is the final straw!<br><br>Get it <a href='https://squffed.itch.io/untitled-seagull-simulator' target='_blank'>here.</a>">
+            </div>
+            <div class="w3-col l3 m6">
+               <img src="assets/img/UHA/1.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="<h6>Click image for screenshots!</h6><br>Role: Main Game Developer<br><br>Untitled Hat Adventure is a multi-level-hat-loving shooter. Collect hats. Eat grass. Defeat the Abeemination.<br><br>Get it <a href='https://squffed.itch.io/untitled-hat-simulator' target='_blank'>here.</a>">
+            </div>
+         </div>
+         <p class="w3-center w3-large" style="margin-top:64px">See more <a href="https://squffed.itch.io">here.</a></p>
+      </div>
+      <!-- Modal for full size images on click-->
+      <div id="modal01" class="w3-modal w3-black">
+         <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" onclick="document.getElementById('modal01').style.display='none'; number = 1; document.documentElement.style.overflow = 'visible'">×</span>
+         <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+            <img id="img01" class="w3-image" onclick="slideshow()">
+            <p id="caption" class="w3-opacity w3-large"></p>
+         </div>
+      </div>
+      <!-- Contact Section -->
+      <div class="w3-container" style="padding:128px 16px; background-color: #f1f1f1;" id="contact">
+         <h3 class="w3-center">CONTACT</h3>
+         <p class="w3-center w3-large">Let's get in touch. Send a message;</p>
+         <div style="margin-top:48px; width: 50%; transform: translateX(50%);" class="w3-hide-small w3-center">
+            <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSebuB87ApNPnTQuZdE-Z4ilzxldcz6tpiGeR4Vr5aZgiC9-CQ/formResponse" method="POST" target="hiddenFrame" autocomplete="off" onsubmit="return test()">
+               <p><input class="w3-input w3-border" type="name" placeholder="Name"  id="Widget1503266122" name="entry.105541023"></p>
+               <p><input class="w3-input w3-border" type="email" placeholder="Email" required  id="Widget1476146481" name="entry.958019618"></p>
+               <p><input class="w3-input w3-border" type="subject" placeholder="Subject" required id="Widget813539949" name="entry.356867125"></p>
+               <p><textarea oninput="auto_grow(this)" class="w3-input w3-border" placeholder="Message" required id="Widget1234467075" name="entry.1231620433"></textarea></p>
+               <p><input class="w3-input w3-border" type="test1" placeholder="What grows on apple trees?" required id="test1"></p>
+               <p id="submitBtn">
+                  <button class="w3-button w3-black" type="submit">
+                  <i class="fa fa-paper-plane"></i> Send Message
+                  </button>
+               </p>
+               <p>By submitting this form you are agreeing to receive a confirmation email and a possible reply from me. I hope!</p>
+            </form>
+         </div>
+         <div style="margin-top:48px" class="w3-hide-large w3-hide-medium w3-center">
+            <form action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSebuB87ApNPnTQuZdE-Z4ilzxldcz6tpiGeR4Vr5aZgiC9-CQ/formResponse" method="POST" target="hiddenFrame" autocomplete="off" onsubmit="return test()">
+               <p><input class="w3-input w3-border" type="name" placeholder="Name"  id="Widget1503266122" name="entry.105541023"></p>
+               <p><input class="w3-input w3-border" type="email" placeholder="Email" required  id="Widget1476146481" name="entry.958019618"></p>
+               <p><input class="w3-input w3-border" type="subject" placeholder="Subject" required id="Widget813539949" name="entry.356867125"></p>
+               <p><textarea oninput="auto_grow(this)" class="w3-input w3-border" placeholder="Message" required id="Widget1234467075" name="entry.1231620433"></textarea></p>
+               <p><input class="w3-input w3-border" type="test2" placeholder="What grows on apple trees?" required id="test2"></p>
+               <p id="submitBtn">
+                  <button class="w3-button w3-black" type="submit">
+                  <i class="fa fa-paper-plane"></i> Send Message
+                  </button>
+               </p>
+               <p>By submitting this form you are agreeing to receive a confirmation email and a possible reply from me. I hope!</p>
+            </form>
+         </div>
+      </div>
+      <iframe name="hiddenFrame" width="0" height="0" style="display: none;"></iframe>
+      <!-- Footer -->
+      <footer class="w3-center w3-black w3-padding-64">
+         <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+         <div class="w3-xlarge w3-section">
+            <a href="https://discord.gg/dQf39qEYsq" target="_blank"><i class="fa-brands fa-discord w3-hover-opacity"></i></a>
+            <a href="https://www.youtube.com/channel/UCyB-RChVKhJ8Cfx_MwzKEdA" target="_blank"><i class="fa-brands fa-youtube w3-hover-opacity"></i></a>
+            <a href="https://squffed.itch.io" target="_blank"><i class="fa-brands fa-itch-io w3-hover-opacity"></i></a>
+            <a href="https://github.com/squffed" target="_blank"><i class="fa-brands fa-github w3-hover-opacity"></i></a>
+            <a href="#contact"><i class="fa fa-envelope w3-hover-opacity"></i></a>
+         </div>
+         <p>© SQUFFED 2022-2022<br>Powered by <a href="https://www.w3schools.com/w3css/defaulT.asp">w3.css</a></p>
+      </footer>
+      <script src="assets/js/end.js"></script>
+   </body>
+</html>
