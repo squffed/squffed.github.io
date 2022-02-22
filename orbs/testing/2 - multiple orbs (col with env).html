@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>orbs</title>
+    <style>
+        html, body {
+            width:  100%;
+            height: 100%;
+            margin: 0;
+        }
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        canvas
+        {
+            background: antiquewhite;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+    <script>
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            var number = Math.floor(Math.random() * (max - min + 1)) + min;
+            while(number == 0)
+            {
+                number = Math.floor(Math.random() * (max - min + 1)) + min
+            }
+            return number;
+        }
+
+        function getRandomColour()
+        {
+            return "#" + Math.floor(Math.random()*16777215).toString(16);
+        }
+    </script>
+</head>
+<body>
+    <h1 style="text-align: center;">orbs</h1>
+    <canvas id="canvas" width="720" height="480"></canvas>
+
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        
+        var orbs = [];
+
+        function init(x)
+        {
+            for (let index = 0; index < x; index++) {
+                createOrb();
+            }
+        }
+
+        function createOrb()
+        {
+            var _orbRadius = getRandomInt(10,30);
+            var _x = getRandomInt(_orbRadius,canvas.width-_orbRadius);
+            var _y = getRandomInt(_orbRadius,canvas.height-_orbRadius);
+            var _dx = getRandomInt(-5,5);
+            var _dy = getRandomInt(-5,5);
+            var _colour = getRandomColour();
+            let orb = {x:_x, y:_y, orbRadius:_orbRadius, dx:_dx, dy:_dy, colour:_colour};
+            orbs.push(orb);
+        }
+
+        function drawOrbs() {
+            orbs.forEach(orb => {
+                ctx.beginPath();
+                ctx.arc(orb.x, orb.y, orb.orbRadius, 0, Math.PI*2);
+                ctx.fillStyle = orb.colour;
+                ctx.fill();
+                ctx.closePath();
+            });
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawOrbs();
+            
+            orbs.forEach(orb => {
+                if(orb.x + orb.dx > canvas.width-orb.orbRadius || orb.x + orb.dx < orb.orbRadius) { //If colliding left or right bounds
+                    orb.dx = -orb.dx;
+                }
+                if(orb.y + orb.dy > canvas.height-orb.orbRadius || orb.y + orb.dy < orb.orbRadius) { //If colliding up or bottom bounds
+                    orb.dy = -orb.dy;
+                }
+                
+                orb.x += orb.dx;
+                orb.y += orb.dy;
+            });
+        }
+
+        init(10);
+
+        setInterval(draw, 10);
+    </script>
+</body>
+</html>

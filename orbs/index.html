@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>orbs</title>
+    <style>
+        html, body {
+            width:  100%;
+            height: 100%;
+            margin: 0;
+        }
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        canvas
+        {
+            background: antiquewhite;
+            display: block;
+            margin: 0 auto;
+        }
+        h1,h3 {
+            padding: 20px;
+            text-align: center;
+        }
+        td {
+            padding: 20px;
+        }
+        #options {
+            width: 720px; 
+            text-align: center; 
+            background-color: aquamarine; 
+            margin: 0 auto;
+        }
+        table
+        { 
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <script>
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            var number = Math.floor(Math.random() * (max - min + 1)) + min;
+            while(number == 0)
+            {
+                number = Math.floor(Math.random() * (max - min + 1)) + min
+            }
+            return number;
+        }
+
+        function getRandomColour()
+        {
+            return "#" + Math.floor(Math.random()*16777215).toString(16);
+        }
+
+        function collision(orb1,orb2)
+        {
+            let dx = orb2.x + orb2.dx - orb1.x + orb1.dx;
+            let dy = orb2.y + orb2.dy - orb1.y + orb1.dy;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+            let sumOfRadii = orb1.orbRadius + orb2.orbRadius;
+            let oldOrb1Colour = orb1.colour;
+            let oldOrb2Colour = orb2.colour;
+            if(distance < sumOfRadii)
+            {
+                //colliding
+                return true;
+            }
+            else if(distance === sumOfRadii)
+            {
+                //touching
+                return true;
+            }
+            else
+            {
+                //no collision
+                return false;
+            }
+        }
+
+        function changeOrbCount(slider)
+        {
+            document.getElementById("numOfOrbsCount").innerText = "number of orbs: " + slider.value;
+            numberOfOrbs = slider.value;
+            init(numberOfOrbs);
+        }
+
+        function changeCollisions(slider)
+        {
+            if(slider.checked)
+            {
+                showCollisions = true;
+            }
+            else
+            {
+                showCollisions = false;
+            }
+        }
+
+        function intervalChange(slider)
+        {
+            document.getElementById("interval").innerText = "interval: " + slider.value;
+            interval = slider.value;
+        }
+    </script>
+</head>
+<body>
+    <h1>orbs</h1>
+
+    <canvas id="canvas" width="720" height="480"></canvas>
+
+    <div id="options">
+        <h3>options</h3>
+        <table>
+            <tr>
+                <td>
+                    <p id="numOfOrbsCount">number of orbs: 10</p>
+                    <input type="range" name="number of orbs" min="1" max="500" value="1" id="numOfOrbsSlider" onchange="changeOrbCount(this)">
+                </td>
+                <td>
+                    <p id="interval" title="how quickly the canvas refreshes in milliseconds.">interval: 16</p>
+                    <input type="range" name="delta time" min="1" max="60" value="10" id="intervalSlider" onchange="intervalChange(this)">
+                </td>
+                <td>
+                    <p>show collisions: </p>
+                    <input type="checkbox" name="show collisions" id="showCollisionsBox" onchange="changeCollisions(this)">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        
+        var orbs = [];
+        var numberOfOrbs = 10;
+        var showCollisions = false;
+        var interval = 16;
+
+        function init(x)
+        {
+            orbs.length = 0;
+            for (let index = 0; index < x; index++) {
+                createOrb();
+            }
+        }
+
+        function createOrb()
+        {
+            var _orbRadius = getRandomInt(10,30);
+            var _x = getRandomInt(_orbRadius,canvas.width-_orbRadius);
+            var _y = getRandomInt(_orbRadius,canvas.height-_orbRadius);
+            var _dx = getRandomInt(-5,5);
+            var _dy = getRandomInt(-5,5);
+            var _colour = getRandomColour();
+            let orb = {x:_x, y:_y, orbRadius:_orbRadius, dx:_dx, dy:_dy, colour:_colour};
+            orbs.push(orb);
+        }
+
+        function drawOrbs() {
+            orbs.forEach(orb => {
+                ctx.beginPath();
+                ctx.arc(orb.x, orb.y, orb.orbRadius, 0, Math.PI*2);
+                ctx.fillStyle = orb.colour;
+                ctx.fill();
+                ctx.closePath();
+            });
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawOrbs();
+            
+            orbs.forEach(orb => {
+                if(orb.x + orb.dx > canvas.width-orb.orbRadius || orb.x + orb.dx < orb.orbRadius) { //If colliding left or right bounds
+                    orb.dx = -orb.dx;
+                }
+                if(orb.y + orb.dy > canvas.height-orb.orbRadius || orb.y + orb.dy < orb.orbRadius) { //If colliding up or bottom bounds
+                    orb.dy = -orb.dy;
+                }
+                
+                orbs.forEach(innerOrb => {
+                    if(orb != innerOrb)
+                    {
+                        if(collision(orb,innerOrb))
+                        {
+                            //Do collision math: TODO
+                            if(showCollisions)
+                            {
+                                ctx.beginPath();
+                                ctx.arc(orb.x, orb.y, orb.orbRadius + 1, 0, Math.PI*2);
+                                ctx.stroke();
+                                ctx.beginPath();
+                                ctx.arc(orb.x, orb.y, orb.orbRadius + 1, 0, Math.PI*2);
+                                ctx.stroke();
+                            }
+                        }
+                    }
+                });
+                
+                orb.x += orb.dx;
+                orb.y += orb.dy;
+            });
+            setTimeout(draw, interval);
+        }
+
+        init(numberOfOrbs);
+
+        setTimeout(draw, interval);
+    </script>
+</body>
+</html>
