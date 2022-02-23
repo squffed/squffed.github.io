@@ -60,12 +60,10 @@
 
         function collision(orb1,orb2)
         {
-            let dx = orb2.x + orb2.dx - orb1.x + orb1.dx;
-            let dy = orb2.y + orb2.dy - orb1.y + orb1.dy;
+            let dx = orb2.x - orb1.x;
+            let dy = orb2.y - orb1.y;
             let distance = Math.sqrt(dx * dx + dy * dy);
             let sumOfRadii = orb1.orbRadius + orb2.orbRadius;
-            let oldOrb1Colour = orb1.colour;
-            let oldOrb2Colour = orb2.colour;
             if(distance < sumOfRadii)
             {
                 //colliding
