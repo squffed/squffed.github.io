@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="../assets/img/favicon.png">
+    <meta name="description" content="This is a simulation of orbs interacting made by SQUFFED.">
+    <title>orbs</title>
+    <style>
+        * { padding: 0; margin: 0; font-family: 'Raleway'; user-select: none;}
+        canvas { background: #eee; display: block; margin: 0 auto; }
+        table, tr, td, h1, p
+        { 
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>orbs</h1>
+
+    <canvas id="canvas" width="720" height="480" onclick="addOrRemoveOrb()"></canvas>
+
+    <table>
+        <tr>
+            <td>
+                <p id="numberOfOrbsText">number of orbs: 10</p>
+                <input type="range" name="numberOfOrbs" id="numberOfOrbsSlider" min="1" max="100" value="10" onchange="changeNumberOfOrbs(this)">
+            </td>
+            <td>
+                <p id="intervalText">interval: 10</p>
+                <input type="range" name="interval" id="intervalSlider" min="1" max="120" value="10" onchange="changeInterval(this)">
+            </td>
+            <td>
+                <p>show ids</p>
+                <input type="checkbox" name="showIds" id="showIdsCheckbox" onchange="changeShowIds(this)">
+            </td>
+            <td>
+                <p>allow collisions</p>
+                <input type="checkbox" name="allowCollisions" id="allowCollisionsCheckbox" onchange="changeAllowCollisions(this)">
+            </td>
+        </tr>
+    </table>
+
+    <p>This is a simulation of orbs interacting made by <a href="https://squffed.com" target="_blank">SQUFFED</a>. See the GitHub <a href="https://github.com/squffed/orbs">here</a>.</p><br>
+
+    <!-- Footer -->
+    <footer class="w3-center w3-black w3-padding-32">
+    <div class="w3-xlarge w3-section">
+        <a href="https://discord.gg/dQf39qEYsq" target="_blank"><i class="fa-brands fa-discord w3-hover-opacity"></i></a>
+        <a href="https://www.youtube.com/channel/UCyB-RChVKhJ8Cfx_MwzKEdA" target="_blank"><i class="fa-brands fa-youtube w3-hover-opacity"></i></a>
+        <a href="https://squffed.itch.io" target="_blank"><i class="fa-brands fa-itch-io w3-hover-opacity"></i></a>
+        <a href="https://github.com/squffed" target="_blank"><i class="fa-brands fa-github w3-hover-opacity"></i></a>
+        <a href="https://squffed.com/#contact" target="_blank"><i class="fa fa-envelope w3-hover-opacity"></i></a>
+    </div>
+    <p>© <a href="https://squffed.com" target="_blank">SQUFFED</a> 2022-2022<br></p>
+    </footer>
+
+    <script src="./orbs.js"></script>
+</body>
+</html>
