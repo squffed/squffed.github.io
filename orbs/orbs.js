@@ -240,11 +240,15 @@ function orbPhysics()
     setTimeout(draw, interval);
 }
 
-function draw() {
+function checkCanvasBounds()
+{
     if(window.innerWidth < 720)
     {
         ctx.canvas.width = window.innerWidth;
     }
+}
+
+function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawOrbs();
     orbPhysics();
