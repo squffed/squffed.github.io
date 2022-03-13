@@ -241,6 +241,10 @@ function orbPhysics()
 }
 
 function draw() {
+    if(window.innerWidth < 720)
+    {
+        ctx.canvas.width = window.innerWidth;
+    }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawOrbs();
     orbPhysics();
