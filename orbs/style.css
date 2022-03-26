@@ -1,0 +1,9 @@
+* { padding: 0; margin: 0; font-family: 'Raleway'; user-select: none;}
+canvas { background: #eee; display: block; margin: 0 auto; }
+table, tr, td, h1, p
+{ 
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 10px;
+}
