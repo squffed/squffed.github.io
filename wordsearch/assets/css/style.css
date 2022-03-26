@@ -1,0 +1,31 @@
+html, body {
+    margin: 0;
+    border: 0;
+    user-select: none;
+}
+header {
+    text-align: center;
+}
+table, td {
+    border: 0.5px;
+    border-style: solid;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: auto;
+}
+td {
+    min-width: 40px;
+    min-height: 40px;
+    text-align: center;
+    font-size: x-large;
+}
+p {
+    text-align: center;
+}
+#grid td:hover {
+    cursor: pointer;
+}
+#wordsRow * {
+    padding: 5px;
+    font-size: large;
+}
