@@ -211,7 +211,6 @@ function createGrid()
 function chooseWords(array, amount)
 {
     chosenWords = [];
-    document.title = `Wordsearch: ${array[0]}`;
     header.textContent = `Wordsearch: ${array[0]}`;
     for (let i = 0; i < amount; i++) {
         var chosenWord = array[1].random();
