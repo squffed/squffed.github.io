@@ -35,6 +35,7 @@ const wordsRow = document.getElementById("wordsRow");
 const header = document.getElementById("header");
 const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 const directions = ['ROW','COLUMN','DIAGONAL LEFT','DIAGONAL RIGHT'];
+const wordsAmount = 10;
 
 // All words taken from https://github.com/imsky/wordlists, filtered out spaces
 const words = {
@@ -50,6 +51,7 @@ var size = 15; //Size of wordsearch
 var chosenWords = []; //Words chosen randomly (see chooseWords function)
 var input = []; //Track user input (through CTRL clicks) and store objects
 var inputString = ""; //Track user input via string
+var wordsFound = 0;
 
 // Selection via click event while holding CTRL
 document.addEventListener('click', function(e) {
@@ -183,10 +185,15 @@ function checkInputString()
                 const element = input[j];
                 element.style.backgroundColor = "grey";
             }
+            wordsFound++;
             input = [];
             inputString = "";
             break;
         }
+    }
+    if(wordsFound == wordsAmount)
+    {
+        location.reload();
     }
 }
 
@@ -342,7 +349,7 @@ function populateHashesWithLetters()
 function startWordsearch()
 {
     createGrid();
-    chooseWords(randomProperty(words),10);
+    chooseWords(randomProperty(words),wordsAmount);
     pasteWords();
     loadUpWordsRow();
     populateHashesWithLetters();
