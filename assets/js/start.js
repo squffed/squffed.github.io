@@ -10,6 +10,7 @@ function auto_grow(element) {
 function tryToFade(element) {
     txtRotate();
     element.remove();
+    document.getElementsByClassName("loaderBackground")[0].remove();
     document.getElementById('fullscreen').style.backgroundColor = "white";
     document.body.style.backgroundColor = "white";
     document.documentElement.style.backgroundColor = "white";
